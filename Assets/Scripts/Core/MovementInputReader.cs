@@ -9,11 +9,11 @@ namespace Core
     /// </summary>
     public class MovementInputReader : MonoBehaviour
     {
-        [SerializeField] private UnityEventVector2 movementVector; // Event for prevent depedency
+        [SerializeField] private UnityEventVector2 _movementVector; // Event for prevent depedency
 
         public void ReadInput (InputAction.CallbackContext callbackContext) {
             Vector2 movement = callbackContext.ReadValue<Vector2>();
-            movementVector?.Invoke(movement);
+            _movementVector?.Invoke(movement);
         }
     }
 }
