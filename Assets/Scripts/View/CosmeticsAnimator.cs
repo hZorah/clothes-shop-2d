@@ -7,15 +7,19 @@ namespace View
     {
         [SerializeField] private Animator[] _animators;
 
+        public Animator[] Animators { get => _animators; }
+
         public void SetFloat (string name, float value) {
             foreach (var animator in _animators) {
-                animator.SetFloat(name, value);
+                if (animator.enabled)
+                    animator.SetFloat(name, value);
             }
         }
 
         public void SetBool (string name, bool value) {
             foreach (var animator in _animators) {
-                animator.SetBool(name, value);
+                if (animator.enabled)
+                    animator.SetBool(name, value);
             }
         }
     }
