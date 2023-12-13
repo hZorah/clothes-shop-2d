@@ -495,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a43dcf7de9942ec8b2bf6bddf12143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 4474576622239484344}
   _cosmeticAnimator: {fileID: 4474576624135465832}
   _renderers:
   - {fileID: 4474576623507588830}
