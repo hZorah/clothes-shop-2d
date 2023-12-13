@@ -644,8 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752e72f3ff2311120be005975c4559b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipItemView: {fileID: 1519357189}
   _cosmeticItem: {fileID: 11400000, guid: 6dfd991325c9e5b94aeaf1e368ebebc2, type: 2}
+  _inventoryPresenter: {fileID: 2003529124}
 --- !u!114 &1829694152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,6 +875,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890727921}
   m_CullTransparentMesh: 1
+--- !u!1 &2003529123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003529126}
+  - component: {fileID: 2003529125}
+  - component: {fileID: 2003529124}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2003529124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003529123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389842cd19010a1968c94fc82d921b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryModel: {fileID: 2003529125}
+  _equipItemView: {fileID: 1519357189}
+  _errorMessages: {fileID: 11400000, guid: 3598ee7410552b8bba5e130b507377fb, type: 2}
+--- !u!114 &2003529125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003529123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb78c44f3f63ffff99de2efd4437c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentMoney:
+    _errorMessages: {fileID: 11400000, guid: 3598ee7410552b8bba5e130b507377fb, type: 2}
+    _currentMoney: 0
+  _equipedItems:
+    _errorMessages: {fileID: 11400000, guid: 3598ee7410552b8bba5e130b507377fb, type: 2}
+    _equipedItems:
+    - {fileID: 0}
+    - {fileID: 0}
+  _ownedItems:
+    _errorMessages: {fileID: 11400000, guid: 3598ee7410552b8bba5e130b507377fb, type: 2}
+    _cosmeticItems:
+    - {fileID: 11400000, guid: 6dfd991325c9e5b94aeaf1e368ebebc2, type: 2}
+--- !u!4 &2003529126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003529123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -53.67762, y: 158.80504, z: -0.017892776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4474576622683678316
 PrefabInstance:
   m_ObjectHideFlags: 0
