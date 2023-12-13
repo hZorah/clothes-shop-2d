@@ -246,11 +246,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &468479593 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4474576622239484344, guid: 32c00632517042b4a9931292371d023a, type: 3}
-  m_PrefabInstance: {fileID: 4474576622683678316}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478172133
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,9 +930,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4474576624135465833, guid: 32c00632517042b4a9931292371d023a, type: 3}
-      propertyPath: _playerAnimator
-      value: 
-      objectReference: {fileID: 468479593}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32c00632517042b4a9931292371d023a, type: 3}
