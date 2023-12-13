@@ -8,34 +8,21 @@ namespace Presenter.StateMachine.Player
         {
             base.OnEnter(ownerStateMachine);
 
-            ApplyAnimations();
+            ApplyAnimations(0f, 0f, false);
             ApplyMovement();
         }
         public override void OnExit()
         {
-            owner.PlayerCoreModel.MainAnimator.SetBool("moving", true);
+            ApplyAnimations(true);
         }
 
         public override void OnUpdate()
         {
-            if (owner.Moving)
+            if (owner.IsMoving)
             {
                 owner.ChangeState(new MovingState());
             }
         }
-
-        private void ApplyAnimations()
-        {
-            owner.PlayerCoreModel.MainAnimator.SetFloat("X", 0f);
-            owner.PlayerCoreModel.MainAnimator.SetFloat("Y", 0f);
-            owner.PlayerCoreModel.MainAnimator.SetBool("moving", false);
-        }
-
-        private void ApplyMovement()
-        {
-            owner.PlayerCoreModel.RigidBody.velocity = Vector2.zero;
-        }
-
         public override bool UsesFixedUpdate() => false;
     }
 }

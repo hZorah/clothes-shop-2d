@@ -13,11 +13,13 @@ namespace Model.Core
 
         public float MovementSpeed { get => _movementSpeed; }
         public Animator MainAnimator { get => _mainAnimator; }
-        public Rigidbody2D RigidBody { get => mRigidBody; }
-
-        private void Awake()
-        {
-            mRigidBody = GetComponent<Rigidbody2D>(); // caching rigidbody;
+        public Rigidbody2D RigidBody {             
+            get {
+                if (mRigidBody == null) {
+                    mRigidBody = GetComponent <Rigidbody2D> (); //caching rigidbody;    
+                }
+                return mRigidBody;
+            }
         }
     }
 }
