@@ -12,6 +12,7 @@ namespace Model.Management.Inventory
         [Header("Equiped Items")]
         public string WrongItemType = "Item type does not exist";
         public string SlotEmpty = "Slot already empty";
+        public string RemovingWrongItem = "Trying to Remove Wrong Item";
         [Header("Owned Items")]
         public string AlreadyContains = "This item already exists in inventory";
         public string DontContain = "This item does not exist in inventory";

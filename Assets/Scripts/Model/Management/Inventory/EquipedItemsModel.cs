@@ -24,7 +24,8 @@ namespace Model.Management.Inventory
                 throw new Exception(_errorMessages.WrongItemType);
             if (_equipedItems[type] == null)
                 throw new Exception(_errorMessages.SlotEmpty);
-            
+            if (_equipedItems[type] != item)
+                throw new Exception(_errorMessages.RemovingWrongItem);
             _equipedItems[type] = null;
         }
 
