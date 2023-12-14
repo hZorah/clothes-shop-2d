@@ -2,6 +2,7 @@ using Model.Management;
 using Model.Management.Inventory;
 using UnityEngine;
 using View;
+using View.UI.Inventory;
 
 namespace Presenter.Inventory
 {
@@ -9,12 +10,17 @@ namespace Presenter.Inventory
     {
         [SerializeField] private InventoryModel _inventoryModel;
         [SerializeField] private EquipItemView _equipItemView;
+        [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private InventoryExceptionMessages _errorMessages;
         private void Start()
         {
             _inventoryModel.OnMoneyUpdate += UpdateMoney;
             _inventoryModel.OnEquipedItemsUpdate += UpdateEquipedItems;
             _inventoryModel.OnInventoryUpdate += UpdateInventory;
+
+            UpdateMoney();
+            UpdateEquipedItems();
+            UpdateInventory();
         }
 
         private void OnDestroy()
@@ -33,22 +39,27 @@ namespace Presenter.Inventory
         {
             for (int i = 0; i < _inventoryModel.EquipedItems.Length; i++)
             {
-                if (_inventoryModel.EquipedItems[i] == null) {
-                    _equipItemView.RemoveItem((CosmeticItemType) i);
+                if (_inventoryModel.EquipedItems[i] == null)
+                {
+                    _equipItemView.RemoveItem((CosmeticItemType)i);
                 }
-                else {
-                     _equipItemView.EquipItem(_inventoryModel.EquipedItems[i]);
+                else
+                {
+                    _equipItemView.EquipItem(_inventoryModel.EquipedItems[i]);
+
                 }
             }
+            UpdateInventory();
         }
         private void UpdateInventory()
         {
-
+            _inventoryView.UpdateInventory(_inventoryModel.OwnedItems, _inventoryModel.EquipedItems);
         }
 
         public void EquipItem(CosmeticItem item)
         {
-            if (!_inventoryModel.OwnedItems.Contains(item)) {
+            if (!_inventoryModel.OwnedItems.Contains(item))
+            {
                 // This should not happen
                 return;
             }
@@ -64,6 +75,15 @@ namespace Presenter.Inventory
                     return;
                 }
             }
+        }
+
+        public bool IsItemEquiped(CosmeticItem item)
+        {
+            foreach (var i in _inventoryModel.EquipedItems)
+            {
+                if (i == item) return true;
+            }
+            return false;
         }
 
         public void UnequipItem(CosmeticItem item)
@@ -139,6 +159,10 @@ namespace Presenter.Inventory
         {
             try
             {
+                if (IsItemEquiped(item))
+                {
+                    _inventoryModel.UnequipItem(item);
+                }
                 _inventoryModel.RemoveFromInventory(item);
             }
             catch (System.Exception ex)
