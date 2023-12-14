@@ -7,8 +7,10 @@ namespace Management.Model.Shop
     public class ShopModel : MonoBehaviour
     {
         [SerializeField] private float _sellingMultiplier = 0.7f;
+        [SerializeField] private float _buyingMultiplier = 1f;
         [SerializeField] private List<CosmeticItem> _shopInventory;
 
+        public float BuyingMultiplier { get => _buyingMultiplier; }
         public float SellingMultiplier { get => _sellingMultiplier; }
         public CosmeticItem[] ShopInventory
         {
@@ -19,6 +21,7 @@ namespace Management.Model.Shop
                 return items;
             }
         }
+
 
         public event Action OnInventoryUpdate;
 

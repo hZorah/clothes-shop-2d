@@ -1,6 +1,7 @@
 using Management.Model;
 using Presenter.Inventory;
 using UnityEngine;
+using Utils;
 
 namespace View.UI.Inventory
 {

@@ -17,4 +17,4 @@ MonoBehaviour:
   Icon: {fileID: -1624016987, guid: e618b2392fc6d59cf9382a03501da76d, type: 3}
   AnimatorOverrideController: {fileID: 22100000, guid: 29a86b7059cce651d88b42f1454010a0, type: 2}
   Type: 0
-  Price: 0
+  Price: 50

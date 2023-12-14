@@ -55,8 +55,8 @@ namespace Presenter.Inventory
             _inventoryView.UpdateInventory(_inventoryModel.OwnedItems, _inventoryModel.EquipedItems);
         }
         
-        public bool HasMoneyFor (CosmeticItem item) {
-            return _inventoryModel.CurrentMoney >= item.Price;
+        public bool HasMoneyFor (float amount) {
+            return _inventoryModel.CurrentMoney >=amount;
         }
         public bool IsItemInInventory(CosmeticItem item) {
             foreach (var i in _inventoryModel.OwnedItems)
@@ -183,6 +183,10 @@ namespace Presenter.Inventory
                     return;
                 }
             }
+        }
+
+        public CosmeticItem[] GetInventory () {
+            return _inventoryModel.OwnedItems;
         }
     }
 }

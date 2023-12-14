@@ -22,7 +22,6 @@ namespace View.UI.Inventory
             _item = item;
             _icon.enabled = true;
             _icon.sprite = item.Icon;
-            Debug.Log("add" +  _icon.enabled );
         }
         public void RemoveItem () {
             _item = null;
@@ -32,12 +31,10 @@ namespace View.UI.Inventory
         }
 
         public void EquipItem (Color equipColor) {
-            Debug.Log("equip" + equipColor);
             _background.color = equipColor;
         }
         public void DeEquip () {
             _background.color = defaultColor;
-            Debug.Log("dequip" + defaultColor);
         }
         public void OpenModal () {
             InventoryView.OpenModal(_item);
