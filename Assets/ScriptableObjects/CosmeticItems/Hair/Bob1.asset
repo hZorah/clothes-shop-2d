@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Boxr
   DefaultSprite: {fileID: -1624016987, guid: 998b3081156562d1cb927194a7b19d15, type: 3}
-  AnimatorOverrideController: {fileID: 22100000, guid: 29a86b7059cce651d88b42f1454010a0, type: 2}
-  Type: 0
-  Price: 0
+  Icon: {fileID: -842023471, guid: d692a4de427f9aa2e91fe24cf56f3f94, type: 3}
+  AnimatorOverrideController: {fileID: 22100000, guid: be24c2ad65dea361ca1c44eddf4e0d8d, type: 2}
+  Type: 1
+  Price: 20

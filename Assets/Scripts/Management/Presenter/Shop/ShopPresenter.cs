@@ -18,7 +18,7 @@ namespace Presenter.Shop
         [SerializeField] private InventoryPresenter _inventoryPresenter;
         [SerializeField] private ShopView _shopView;
 
-       
+       public bool IsOpen { get => _shopView.gameObject.activeSelf; }
 
 
 
@@ -105,6 +105,15 @@ namespace Presenter.Shop
             _inventoryPresenter.IncreaseMoney(item.Price * _shopModel.SellingMultiplier);
             _inventoryPresenter.RemoveFromInventory(item);
             UpdateShop();
+        }
+
+        public void OpenCloseShop () {
+            if (IsOpen) {
+                _shopView.Close();
+                return;
+            }
+            _shopView.gameObject.SetActive(true);
+            _inventoryPresenter.OpenCloseInventory();
         }
     }
 }

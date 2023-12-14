@@ -1,5 +1,7 @@
 using Management.Model;
 using Management.Model.Inventory;
+using Management.View;
+using Presenter.Shop;
 using UnityEngine;
 using View;
 using View.UI.Inventory;
@@ -12,6 +14,12 @@ namespace Presenter.Inventory
         [SerializeField] private EquipItemView _equipItemView;
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private InventoryExceptionMessages _errorMessages;
+        [SerializeField] private ShopPresenter _shopPresenter;
+
+        [SerializeField] private MoneyView _moneyView;
+
+
+        public bool IsOpen {get => _inventoryView.gameObject.activeSelf; }
         private void Start()
         {
             _inventoryModel.OnMoneyUpdate += UpdateMoney;
@@ -32,7 +40,7 @@ namespace Presenter.Inventory
 
         private void UpdateMoney()
         {
-
+            _moneyView.UpdateMoney(_inventoryModel.CurrentMoney);
         }
         private void UpdateEquipedItems()
         {
@@ -187,6 +195,15 @@ namespace Presenter.Inventory
 
         public CosmeticItem[] GetInventory () {
             return _inventoryModel.OwnedItems;
+        }
+
+        public void OpenCloseInventory () {
+            if (IsOpen || _shopPresenter.IsOpen) {
+                _inventoryView.Close();
+                return;
+            }
+            _inventoryView.gameObject.SetActive(true);
+           UpdateInventory();
         }
     }
 }

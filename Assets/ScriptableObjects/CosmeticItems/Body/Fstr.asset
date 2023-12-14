@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemName: Fstr
   DefaultSprite: {fileID: -1624016987, guid: 998b3081156562d1cb927194a7b19d15, type: 3}
   Icon: {fileID: -30060331, guid: 55a1599196fdd8b3cbb111f122313ef1, type: 3}
-  AnimatorOverrideController: {fileID: 22100000, guid: 29a86b7059cce651d88b42f1454010a0, type: 2}
+  AnimatorOverrideController: {fileID: 22100000, guid: af7b4db9232da578dbf4067f99199251, type: 2}
   Type: 0
   Price: 150

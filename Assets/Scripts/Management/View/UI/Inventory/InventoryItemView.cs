@@ -15,7 +15,7 @@ namespace View.UI.Inventory
 
         private void Awake() {
             _icon.enabled = false;
-            defaultColor = _background.color;
+            defaultColor = Color.white;
         }
 
         public void AddItem (CosmeticItem item) {
@@ -37,6 +37,7 @@ namespace View.UI.Inventory
             _background.color = defaultColor;
         }
         public void OpenModal () {
+            if (_item == null) return;
             InventoryView.OpenModal(_item);
         } 
     }

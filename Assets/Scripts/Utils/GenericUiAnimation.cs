@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Utils
 {
@@ -11,6 +12,9 @@ namespace Utils
     public class GenericUiAnimation : MonoBehaviour
     {
         [SerializeField] private float _duration = 0.3f;
+        [SerializeField] private UnityEvent _OnFinishPopIn;
+        [SerializeField] private float _scaleModifier;
+        private float scale { get => _scaleModifier== 0 ? 1 : _scaleModifier; }
         private RectTransform myTransform;
 
 
@@ -34,10 +38,10 @@ namespace Utils
             {
                 case PopType.In:
                     start = 0;
-                    finish = 1;
+                    finish = scale;
                     break;
                 case PopType.Out:
-                    start = 1;
+                    start = scale;
                     finish = 0;
                     break;
             }
@@ -51,6 +55,9 @@ namespace Utils
             }
             if (type == PopType.Out)
                 myTransform.gameObject.SetActive(false);
+            if ( type == PopType.In) {
+                _OnFinishPopIn?.Invoke();
+            }
         }
     }
 }
