@@ -33,13 +33,13 @@ namespace View.UI.Inventory
             ClearInventory();
             for (int i = 0; i < inventoryItems.Length; i++)
             {
-                _inventoryItems[i].AddItem(inventoryItems[i]);
                 foreach (var item in equipedItems)
                 {
                     if (item == inventoryItems[i]) {
                         _inventoryItems[i].EquipItem(_equipColor);
                     }
                 }
+                _inventoryItems[i].AddItem(inventoryItems[i]);
             }
         }
 

@@ -20,7 +20,6 @@ namespace Presenter.Inventory
 
             UpdateMoney();
             UpdateEquipedItems();
-            UpdateInventory();
         }
 
         private void OnDestroy()
@@ -51,7 +50,7 @@ namespace Presenter.Inventory
             }
             UpdateInventory();
         }
-        private void UpdateInventory()
+        public void UpdateInventory()
         {
             _inventoryView.UpdateInventory(_inventoryModel.OwnedItems, _inventoryModel.EquipedItems);
         }
